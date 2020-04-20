@@ -1,0 +1,12 @@
+body {
+    background-color: #efefff;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 7px, rgba(0, 0, 0, 0.2) 1px, transparent 8px), repeating-linear-gradient(90deg, transparent, transparent 7px, rgba(0, 0, 0, 0.2) 1px, transparent 8px);
+    background-size: 8px 8px;
+    margin: 0;
+    padding: 9px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', "繝偵Λ繧ｮ繝手ｧ偵ざ ProN", "Hiragino Kaku Gothic ProN", "Meiryo", "繝｡繧､繝ｪ繧ｪ", "Osaka", "MS PGothic",'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

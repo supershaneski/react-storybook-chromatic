@@ -1,0 +1,46 @@
+.container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 20px auto 20px;
+    grid-gap: 5px;
+    padding: 5px;
+}
+.container:hover {
+    background-color: #f6f6ff;
+}
+.item {
+    background-color: transparent;
+}
+.item input {
+    background-color: transparent;
+    border: 0px;
+    width: 99%;
+    text-overflow: ellipsis;
+    outline: none;
+}
+.normal {
+    color: #444;
+}
+.archived {
+    color: #bbb;
+}
+.icon {
+    cursor: pointer;
+}
+.iconCheckOff::before {
+    content: '\2610';
+    color: #444;
+}
+.iconCheckOn::before {
+    content: '\2611';
+    color: #444;
+}
+.iconStarOff {
+    color: #ddd;
+}
+.iconStarOn {
+    color: #444;
+}
+.iconStarOff::before, .iconStarOn::before {
+    content: '\2605';
+}
