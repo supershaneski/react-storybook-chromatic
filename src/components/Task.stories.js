@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Task from './Task';
+import Task, { TaskStates } from './Task';
 
 export default {
   component: Task,
@@ -11,7 +11,7 @@ export default {
 export const defaultTaskData = {
   id: '1',
   title: 'Lorem ipsum dolor vanilla',
-  state: 'TASK_INBOX',
+  state: TaskStates.TASK_INBOX,
 }
 
 export const actionsData = {
@@ -33,7 +33,7 @@ export const LongText = () => {
 
 const archivedData = {
     ...defaultTaskData,
-    state: 'TASK_ARCHIVED',
+    state: TaskStates.TASK_ARCHIVED,
 }
 export const Archived = () => {
     return <Task task={archivedData} {...actionsData} />
@@ -41,7 +41,7 @@ export const Archived = () => {
 
 const pinnedData = {
     ...defaultTaskData,
-    state: 'TASK_PINNED',
+    state: TaskStates.TASK_PINNED,
 }
 export const Pinned = () => {
     return <Task task={pinnedData} {...actionsData} />

@@ -14,7 +14,7 @@
 .item input {
     background-color: transparent;
     border: 0px;
-    width: 99%;
+    width: 100%;
     text-overflow: ellipsis;
     outline: none;
 }
@@ -29,18 +29,34 @@
 }
 .iconCheckOff::before {
     content: '\2610';
-    color: #444;
+    color: #9f9f9f;
 }
 .iconCheckOn::before {
     content: '\2611';
-    color: #444;
+    color: #9f9f9f;
 }
+
+.iconCheckOff:active::before {
+    content: '\2611';
+    color: #1ea7fd;
+}
+.iconCheckOn:active::before {
+    content: '\2610';
+    color: #1ea7fd;
+}
+
 .iconStarOff {
     color: #ddd;
 }
 .iconStarOn {
-    color: #444;
+    color: #1ea7fd; /*#6585e7;*/ /*#444;*/
 }
 .iconStarOff::before, .iconStarOn::before {
     content: '\2605';
+}
+.iconStarOff:active {
+    color: #1ea7fd;
+}
+.iconStarOn:active {
+    color: #ddd; /*#444;*/
 }

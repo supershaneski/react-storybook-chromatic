@@ -2,6 +2,7 @@ import React from 'react';
 //import { action } from '@storybook/addon-actions';
 import { TaskList } from './TaskList';
 import { defaultTaskData, actionsData } from './Task.stories';
+import { TaskStates } from './Task';
 
 export default {
   component: TaskList,
@@ -24,8 +25,8 @@ export const actionsData = {
 export const Default = () => <TaskList tasks={defaultTasksData} {...actionsData} />;
 
 export const mixedTasksData = [
-    { ...defaultTaskData, id: '1', state: 'TASK_ARCHIVED' },
-    { ...defaultTaskData, id: '2', state: 'TASK_PINNED' },
+    { ...defaultTaskData, id: '1', state: TaskStates.TASK_ARCHIVED },
+    { ...defaultTaskData, id: '2', state: TaskStates.TASK_PINNED },
     { ...defaultTaskData, id: '3' },
 ]
 export const WithPinned = () => <TaskList tasks={mixedTasksData} {...actionsData} />;

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './TaskList.module.css';
-import Task from './Task';
+import Task, { TaskStates } from './Task';
+import { archiveTask, pinTask } from '../redux/store';
 
 export function TaskList({ tasks, isArchivedVisible, onArchiveTask, onPinTask }) {
     
@@ -14,7 +15,7 @@ export function TaskList({ tasks, isArchivedVisible, onArchiveTask, onPinTask })
     if(tasks.length === 0) {
         return (
             <div className={styles.emptyContainer}>
-                <span>No Tasks</span>
+                <span>Your Taskbox is empty.</span>
             </div>
         )
     }
@@ -23,14 +24,14 @@ export function TaskList({ tasks, isArchivedVisible, onArchiveTask, onPinTask })
         let archived = [];
         if(isArchivedVisible) {
             archived = tasks.filter(item => {
-                return item.state === 'TASK_ARCHIVED'
+                return item.state === TaskStates.TASK_ARCHIVED
             })
         }
         const pinned = tasks.filter(item => {
-            return item.state === 'TASK_PINNED'
+            return item.state === TaskStates.TASK_PINNED
         })
         const inbox = tasks.filter(item => {
-            return item.state !== 'TASK_PINNED' && item.state !== 'TASK_ARCHIVED'
+            return item.state !== TaskStates.TASK_PINNED && item.state !== TaskStates.TASK_ARCHIVED
         })
         return [
             ...archived,
@@ -58,27 +59,13 @@ TaskList.propTypes = {
     onPinTask: PropTypes.func,
 }
 
-const archiveTask = (id) => {
-    return {
-        type: 'ARCHIVE_TASK',
-        payload: id,
-    }
-}
-
-const pinTask = (id) => {
-    return {
-        type: 'PIN_TASK',
-        payload: id,
-    }
-}
-
 const mapStateToProps = (state) => {
     const { isArchivedVisible } = state.visible;
     const tasks = state.task.tasks.filter(item => {
         if(isArchivedVisible) {
-            return item.state === 'TASK_PINNED' || item.state === 'TASK_INBOX' || item.state === 'TASK_ARCHIVED' 
+            return item.state === TaskStates.TASK_INBOX || item.state === TaskStates.TASK_PINNED || item.state === TaskStates.TASK_ARCHIVED 
         } else {
-            return item.state !== 'TASK_ARCHIVED'
+            return item.state !== TaskStates.TASK_ARCHIVED
         }
     })
     return {

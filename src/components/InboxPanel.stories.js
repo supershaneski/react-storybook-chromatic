@@ -17,7 +17,6 @@ export const actionsData = {
 
 const store = {
   getState: () => {
-      console.log('get state')
       return {
           task: initialTasks,
           visible: initialVisibility,
