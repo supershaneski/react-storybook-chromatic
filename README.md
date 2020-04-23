@@ -15,6 +15,10 @@ I use [Material-UI](https://material-ui.com/getting-started/installation/) compo
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs the required modules to run this project.
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
@@ -27,3 +31,6 @@ You will also see any lint errors in the console.
 
 Starts the Storybook component explorer on port 9009.
 
+### `npx chromatic --app-code=<app_code>`
+
+Runs Chromatica test.
